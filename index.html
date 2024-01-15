@@ -12,10 +12,26 @@
 </head>
 <body>
     <main class="area-main" role="main">
-        
+        <section class="area-main__search">
+            <h1 class="area-main__searchTitle">Search GitHub Users</h1>
+            <p class="area-main__searchDescription">Enter a username to fetch a user profile and repository</p>
+            <div class="area-main__searchInputBox">
+                <input id="searchInput" class="area-main__searchInput" type="search" placeholder="GitHub 아이디를 입력해주세요">
+                <span class="area-main__searchInputHotkeyBadge">⌘↩︎</span>
+                <p class="area-main__searchInputTooltip"><span>ENTER</span> 프로필 검색</p>
+            </div>
+        </section>
+        <section id="resultContainer" class="area-main__resultContainer">
+            <!-- HTML Template -->
+            <article class="area-main__result">
+                <div class="area-main__resultProfile"></div>
+                <div class="area-main__resultRepository"></div>
+            </article>
+            <!-- HTML Template -->
+        </section>
     </main>
     <!-- define script -->
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
     <!-- define script -->
 </body>
 </html>
