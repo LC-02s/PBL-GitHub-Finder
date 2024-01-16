@@ -54,8 +54,11 @@ export default class Finder {
                         <a href="${user.html_url ?? 'https://github.com/'}" target="_blank" title="새창이동: ${user.name ?? '유저'} GitHub Page"><span>View Profile </span><span class="material-icons">open_in_new</span></a>
                     </div>
                     <div class="area-result__profileName">
-                        <h2>${user.name ?? 'User Name'}</h2>
-                        <p>${user.login ?? 'userId'}${user.bio ? (' &middot; ' + user.bio) : ''}</p>
+                        <h2>${user.name ? user.name : user.login}</h2>
+                        ${
+                            user.name ? 
+                            `<p>${user.login ?? 'userId'}${user.bio ? (' &middot; ' + user.bio) : ''}</p>` : ''
+                        }
                     </div>
                     <ul class="area-result__profileSummary" role="list">
                         <li class="area-result__profileSummaryItem" role="listitem">
