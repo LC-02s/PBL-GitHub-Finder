@@ -66,18 +66,18 @@ body {position: relative; display: flex; flex-flow: column nowrap; justify-conte
 .area-result__profileSummary {display: flex; flex-flow: row nowrap; justify-content: space-between; align-items: center; width: 100%; height: auto; padding: 16px 24px 20px; margin: 0px 0px 18px; border-top: 1px solid var(--grayscale-200); border-bottom: 1px solid var(--grayscale-200);}
 .area-result__profileSummaryItem {display: block; width: auto; height: auto;}
 .area-result__profileSummaryItem p {display: block; width: 100%; height: auto; text-align: center;}
-.area-result__profileSummaryItem p:first-of-type {margin: 0px 0px 4px; font-size: 18px;}
-.area-result__profileSummaryItem p:last-of-type {font-size: 15px;}
+.area-result__profileSummaryItem p:first-of-type {margin: 0px 0px 6px; font-size: 18px; font-weight: 500; color: var(--grayscale-700);}
+.area-result__profileSummaryItem p:last-of-type {font-size: 14px; font-weight: 400; color: var(--grayscale-600);}
 
 .area-result__profileDetails {display: block; width: 100%; height: auto; padding: 0px 4px;}
 .area-result__profileDetails li {display: block; width: 100%; height: auto;}
 .area-result__profileDetails li + li {margin: 6px 0px 0px;}
 .area-result__profileDetails li p {display: flex; flex-flow: row nowrap; justify-content: flex-start; align-items: flex-start;}
 .area-result__profileDetails li p > span {display: inline-block; vertical-align: middle;}
-.area-result__profileDetails li p > span:not(.material-icons) {font-size: 15px; color: var(--grayscale-600); line-height: 20px; word-break: keep-all;}
+.area-result__profileDetails li p > span:not(.material-icons) {font-size: 15px; color: var(--grayscale-600); line-height: 20px; word-break: break-all;}
 .area-result__profileDetails li p > .material-icons {margin-right: 4px; font-size: 22px; color: var(--grayscale-500);}
 
-.area-result__repositoryTitle {display: block; width: 100%; height: auto; margin: 0px 0px 12px; font-size: 18px; font-weight: 600; color: var(--grayscale-800);}
+.area-result__repositoryTitle {display: block; width: 100%; height: auto; margin: 0px 0px 12px; font-size: 16px; font-weight: 600; color: var(--grayscale-800);}
 .area-result__repositoryList {display: block; width: 100%; height: auto;}
 .area-result__repositoryItem {display: block; width: 100%; height: auto; padding: 12px; border: 1px solid var(--grayscale-200); border-radius: 8px; background-color: var(--brand-white);}
 .area-result__repositoryItem + .area-result__repositoryItem {margin: 8px 0px 0px;}

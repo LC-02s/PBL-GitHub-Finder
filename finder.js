@@ -1,7 +1,15 @@
 export default class Finder {
     constructor() {
         this.userState = 0,
-        this.reposState = 1
+        this.reposState = 1,
+        this.intlKR = new Intl.NumberFormat('ko-KR', {
+            notation: 'compact',
+            maximumFractionDigits: 1,
+        }),
+        this.intlUS = new Intl.NumberFormat('en-US', {
+            notation: 'compact',
+            maximumFractionDigits: 1,
+        })
     }
 
     static async fetchData(username, state) {
@@ -47,19 +55,19 @@ export default class Finder {
                     </div>
                     <div class="area-result__profileName">
                         <h2>${user.name ?? 'User Name'}</h2>
-                        <p>${user.login ?? 'userId'}${user.bio ? (' &middot;' + user.bio) : ''}</p>
+                        <p>${user.login ?? 'userId'}${user.bio ? (' &middot; ' + user.bio) : ''}</p>
                     </div>
                     <ul class="area-result__profileSummary" role="list">
                         <li class="area-result__profileSummaryItem" role="listitem">
-                            <p>${user.public_repos ?? 0}</p>
+                            <p>${this.intlKR.format(user.public_repos) ?? 0}</p>
                             <p>저장소</p>
                         </li>
                         <li class="area-result__profileSummaryItem" role="listitem">
-                            <p>${user.followers ?? 0}</p>
+                            <p>${this.intlKR.format(user.followers) ?? 0}</p>
                             <p>팔로워</p>
                         </li>
                         <li class="area-result__profileSummaryItem" role="listitem">
-                            <p>${user.following ?? 0}</p>
+                            <p>${this.intlKR.format(user.following) ?? 0}</p>
                             <p>팔로잉</p>
                         </li>
                     </ul>
@@ -88,9 +96,9 @@ export default class Finder {
                                 </h3>
                                 ${ el.description !== null ? '<p class="area-result__repositoryDescription">' + el.description + '</p>' : '' }
                                 <div class="area-result__repositorySummary">
-                                    <p><span class="material-icons">star</span> ${el.stargazers_count ?? 0}</p>
-                                    <p><span class="material-icons">visibility</span> ${el.watchers_count ?? 0}</p>
-                                    <p><span class="material-icons">forklift</span> ${el.forks_count ?? 0}</p>
+                                    <p><span class="material-icons">star</span> ${this.intlUS.format(el.stargazers_count) ?? 0}</p>
+                                    <p><span class="material-icons">visibility</span> ${this.intlUS.format(el.watchers_count) ?? 0}</p>
+                                    <p><span class="material-icons">forklift</span> ${this.intlUS.format(el.forks_count) ?? 0}</p>
                                 </div>
                             </li>` : ''
                         }).join('') : '<li class="area-result__repositoryNone"><p>레포지토리가 없습니다</p></li>'
