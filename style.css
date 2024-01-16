@@ -63,7 +63,7 @@ body {position: relative; display: flex; flex-flow: column nowrap; justify-conte
 .area-result__profileName h2 {display: block; width: 100%; height: auto; padding: 0px 2px; font-size: 20px; font-weight: 700; color: var(--grayscale-800); line-height: 1.2; word-break: keep-all;}
 .area-result__profileName p {display: block; width: 100%; height: auto; padding: 0px 4px; font-size: 16px; font-weight: 400; color: var(--grayscale-600); line-height: 1.4; word-break: keep-all;}
 
-.area-result__profileSummary {display: flex; flex-flow: row nowrap; justify-content: space-between; align-items: center; width: 100%; height: auto; padding: 16px 24px 20px; margin: 0px 0px 18px; border-top: 1px solid var(--grayscale-200); border-bottom: 1px solid var(--grayscale-200);}
+.area-result__profileSummary {display: flex; flex-flow: row nowrap; justify-content: space-between; align-items: center; width: 100%; height: auto; padding: 18px 24px 20px; margin: 0px 0px 18px; border-top: 1px solid var(--grayscale-200); border-bottom: 1px solid var(--grayscale-200);}
 .area-result__profileSummaryItem {display: block; width: auto; height: auto;}
 .area-result__profileSummaryItem p {display: block; width: 100%; height: auto; text-align: center;}
 .area-result__profileSummaryItem p:first-of-type {margin: 0px 0px 6px; font-size: 18px; font-weight: 500; color: var(--grayscale-700);}
@@ -82,9 +82,9 @@ body {position: relative; display: flex; flex-flow: column nowrap; justify-conte
 .area-result__repositoryItem {display: block; width: 100%; height: auto; padding: 12px; border: 1px solid var(--grayscale-200); border-radius: 8px; background-color: var(--brand-white);}
 .area-result__repositoryItem + .area-result__repositoryItem {margin: 8px 0px 0px;}
 .area-result__repositorySubject {display: block; width: 100%; height: auto;}
-.area-result__repositorySubject a {display: inline; font-size: 17px; font-weight: 500; color: var(--grayscale-700); word-break: keep-all; transition: color 0.2s;}
+.area-result__repositorySubject a {display: inline; font-size: 17px; font-weight: 500; color: var(--grayscale-700); line-height: 1.2; word-break: keep-all; transition: color 0.2s;}
 .area-result__repositorySubject a:hover {color: var(--ui-information); text-decoration: underline;}
-.area-result__repositoryDescription {display: block; width: 100%; height: auto; font-size: 15px; font-weight: 400; color: var(--grayscale-500); word-break: keep-all;}
+.area-result__repositoryDescription {display: block; width: 100%; height: auto; font-size: 15px; font-weight: 400; color: var(--grayscale-500); line-height: 1.2; word-break: keep-all;}
 .area-result__repositorySubject + .area-result__repositoryDescription {margin: 6px 0px 0px;}
 .area-result__repositorySummary {display: flex; flex-flow: row nowrap; justify-content: flex-start; align-items: center; margin: 16px 0px 0px;}
 .area-result__repositorySubject + .area-result__repositorySummary {margin: 24px 0px 0px;}
