@@ -35,7 +35,7 @@ export default class Finder {
                 email: 'mail',
                 location: 'location_on',
                 blog: 'article',
-                created_at: 'schedule',
+                created_at: 'flag',
             };
             const templateHTML = `
             <article class="area-result__wrap">
@@ -43,12 +43,12 @@ export default class Finder {
                 <div class="area-result__profileWrap">
                     <div class="area-result__profileImg">
                         <img src="${user.avatar_url ?? ''}" alt="${user.name ?? '유저'} 아바타 이미지">
+                        <a href="${user.html_url ?? 'https://github.com/'}" target="_blank" title="새창이동: ${user.name ?? '유저'} GitHub Page"><span>View Profile </span><span class="material-icons">open_in_new</span></a>
                     </div>
                     <div class="area-result__profileName">
-                        <a href="${user.html_url ?? 'https://github.com/'}" target="_blank">View Profile <span class="material-icons">open_in_new</span></a>
                         <h2>${user.name ?? 'User Name'}</h2>
                         <p>${user.login ?? 'userId'}${user.bio ? (' &middot;' + user.bio) : ''}</p>
-                    </div
+                    </div>
                     <ul class="area-result__profileSummary" role="list">
                         <li class="area-result__profileSummaryItem" role="listitem">
                             <p>${user.public_repos ?? 0}</p>
@@ -70,7 +70,7 @@ export default class Finder {
                             .map(el => {
                                 return (user[el] !== null && user[el] !== '') ?
                                     `<li role="listitem">
-                                        <p><span class="material-icons">${detailTarget[el]}</span> ${user[el]}</p>
+                                        <p><span class="material-icons">${detailTarget[el]}</span> <span>${user[el]}</span></p>
                                     </li>` : '';
                             }).join('')
                         }
@@ -84,19 +84,13 @@ export default class Finder {
                             return idx < 4 ?
                             `<li class="area-result__repositoryItem" role="listitem">
                                 <h3 class="area-result__repositorySubject">
-                                    <a href="${el.html_url}" target="_blank">${el.name}</a>
+                                    <a href="${el.html_url}" target="_blank" title="새창이동: ${el.name}">${el.name}</a>
                                 </h3>
                                 ${ el.description !== null ? '<p class="area-result__repositoryDescription">' + el.description + '</p>' : '' }
                                 <div class="area-result__repositorySummary">
-                                    <p class="area-result__repositorySummary--star">
-                                        <span class="material-icons">star</span> ${el.stargazers_count ?? 0}
-                                    </p>
-                                    <p class="area-result__repositorySummary--watchers">
-                                        <span class="material-icons">visibility</span> ${el.watchers_count ?? 0}
-                                    </p>
-                                    <p class="area-result__repositorySummary--forks">
-                                        <span class="material-icons">forklift</span> ${el.forks_count ?? 0}
-                                    </p>
+                                    <p><span class="material-icons">star</span> ${el.stargazers_count ?? 0}</p>
+                                    <p><span class="material-icons">visibility</span> ${el.watchers_count ?? 0}</p>
+                                    <p><span class="material-icons">forklift</span> ${el.forks_count ?? 0}</p>
                                 </div>
                             </li>` : ''
                         }).join('') : '<li class="area-result__repositoryNone"><p>레포지토리가 없습니다</p></li>'
