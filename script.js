@@ -18,6 +18,7 @@ searchInput.addEventListener('keydown', (e) => {
         if (searchInput.value.trim() !== '') {
             insertHTML(searchInput.value.trim().toLowerCase());
             searchInput.value = '';
+            searchInput.blur();
         } else alert("GitHub 아이디를 입력해주세요");
     } else if (e.keyCode == 27) searchInput.blur();
 
