@@ -42,7 +42,7 @@ export default class Finder {
                 company: 'domain',
                 email: 'mail',
                 location: 'location_on',
-                blog: 'article',
+                blog: 'link',
                 created_at: 'flag',
             };
             const templateHTML = `
@@ -81,7 +81,9 @@ export default class Finder {
                             .map(el => {
                                 return user[el] ?
                                     `<li role="listitem">
-                                        <p><span class="material-icons">${detailTarget[el]}</span> <span>${user[el]}</span></p>
+                                        <p><span class="material-icons">${detailTarget[el]}</span> ${
+                                            el === 'blog' ? `<a href="${user[el]}" target="_blank" title="새창이동: ${user.name} Blog">${user[el]}</a>` : `<span>${user[el]}</span>`
+                                        }</p>
                                     </li>` : '';
                             }).join('')
                         }

@@ -54,14 +54,17 @@ body {position: relative; display: flex; flex-flow: column nowrap; justify-conte
 .area-result__profileImg {position: relative; display: flex; justify-content: center; align-items: center; width: 100%; border-radius: 8px; overflow: hidden; background-color: var(--grayscale-100);}
 .area-result__profileImg img {display: block; width: 100%; height: auto;}
 .area-result__profileImg a {position: absolute; top: 8px; right: 8px; display: flex; flex-flow: row nowrap; justify-content: flex-end; align-items: center; width: 40px; height: 40px; padding: 8px; border: 1px solid var(--grayscale-200); border-radius: 4px; background-color: var(--brand-white); overflow: hidden; transition: all 0.2s;}
-.area-result__profileImg a:hover {width: 136px;}
-.area-result__profileImg a > span:not(.material-icons) {white-space: nowrap; opacity: 0; transform: translateX(-30%); transition: all 0.2s;}
-.area-result__profileImg a:hover > span:not(.material-icons) {transform: translateX(0); opacity: 1;}
+.area-result__profileImg a:hover,
+.area-result__profileImg a:focus {width: 136px;}
+.area-result__profileImg a > span:not(.material-icons) {color: var(--grayscale-700); white-space: nowrap; opacity: 0; transform: translateX(-30%); transition: all 0.2s;}
+.area-result__profileImg a:hover > span:not(.material-icons),
+.area-result__profileImg a:focus > span:not(.material-icons) {transform: translateX(0); opacity: 1;}
 .area-result__profileImg a > .material-icons {margin-left: 10px; font-size: 20px; color: var(--grayscale-600);}
 
 .area-result__profileName {display: block; width: 100%; height: auto; margin: 12px 0px 16px;}
 .area-result__profileName h2 {display: block; width: 100%; height: auto; padding: 0px 2px; font-size: 20px; font-weight: 700; color: var(--grayscale-800); line-height: 1.2; word-break: keep-all;}
-.area-result__profileName p {display: block; width: 100%; height: auto; padding: 0px 4px; font-size: 16px; font-weight: 400; color: var(--grayscale-600); line-height: 1.4; word-break: keep-all;}
+.area-result__profileName p {display: block; width: 100%; height: auto; padding: 0px 4px; font-size: 16px; font-weight: 400; color: var(--grayscale-600); line-height: 1.2; word-break: keep-all;}
+.area-result__profileName h2 + p {margin: 4px 0px 0px;}
 
 .area-result__profileSummary {display: flex; flex-flow: row nowrap; justify-content: space-between; align-items: center; width: 100%; height: auto; padding: 18px 24px 20px; margin: 0px 0px 18px; border-top: 1px solid var(--grayscale-200); border-bottom: 1px solid var(--grayscale-200);}
 .area-result__profileSummaryItem {display: block; width: auto; height: auto;}
@@ -73,8 +76,12 @@ body {position: relative; display: flex; flex-flow: column nowrap; justify-conte
 .area-result__profileDetails li {display: block; width: 100%; height: auto;}
 .area-result__profileDetails li + li {margin: 6px 0px 0px;}
 .area-result__profileDetails li p {display: flex; flex-flow: row nowrap; justify-content: flex-start; align-items: flex-start;}
-.area-result__profileDetails li p > span {display: inline-block; vertical-align: middle;}
-.area-result__profileDetails li p > span:not(.material-icons) {font-size: 15px; color: var(--grayscale-600); line-height: 20px; word-break: break-all;}
+.area-result__profileDetails li p > span,
+.area-result__profileDetails li p > a {display: inline-block; vertical-align: middle;}
+.area-result__profileDetails li p > span:not(.material-icons),
+.area-result__profileDetails li p > a {font-size: 15px; color: var(--grayscale-600); line-height: 20px; word-break: break-all;}
+.area-result__profileDetails li p > a:hover,
+.area-result__profileDetails li p > a:focus {color: var(--ui-information); text-decoration: underline;}
 .area-result__profileDetails li p > .material-icons {margin-right: 4px; font-size: 22px; color: var(--grayscale-500);}
 
 .area-result__repositoryTitle {display: block; width: 100%; height: auto; margin: 0px 0px 12px; font-size: 16px; font-weight: 600; color: var(--grayscale-800);}
@@ -82,8 +89,9 @@ body {position: relative; display: flex; flex-flow: column nowrap; justify-conte
 .area-result__repositoryItem {display: block; width: 100%; height: auto; padding: 12px; border: 1px solid var(--grayscale-200); border-radius: 8px; background-color: var(--brand-white);}
 .area-result__repositoryItem + .area-result__repositoryItem {margin: 8px 0px 0px;}
 .area-result__repositorySubject {display: block; width: 100%; height: auto;}
-.area-result__repositorySubject a {display: inline; font-size: 17px; font-weight: 500; color: var(--grayscale-700); line-height: 1.2; word-break: keep-all; transition: color 0.2s;}
-.area-result__repositorySubject a:hover {color: var(--ui-information); text-decoration: underline;}
+.area-result__repositorySubject a {display: inline; font-size: 17px; font-weight: 500; color: var(--grayscale-700); line-height: 1.2; word-break: keep-all;}
+.area-result__repositorySubject a:hover,
+.area-result__repositorySubject a:focus {color: var(--ui-information); text-decoration: underline;}
 .area-result__repositoryDescription {display: block; width: 100%; height: auto; font-size: 15px; font-weight: 400; color: var(--grayscale-500); line-height: 1.2; word-break: keep-all;}
 .area-result__repositorySubject + .area-result__repositoryDescription {margin: 6px 0px 0px;}
 .area-result__repositorySummary {display: flex; flex-flow: row nowrap; justify-content: flex-start; align-items: center; margin: 16px 0px 0px;}
