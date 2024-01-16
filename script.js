@@ -5,6 +5,7 @@ const gitHubFinder = new Finder();
 
 
 async function insertHTML(username) {
+    resultContainer.innerHTML = `<div class="area-result__loaderBox"><div class="area-result__loader"></div></div>`;
     resultContainer.innerHTML = await gitHubFinder.templateHTML(username);
 }
 
@@ -14,8 +15,8 @@ window.addEventListener('keydown', (e) => {
 });
 searchInput.addEventListener('keydown', (e) => {
     if (e.keyCode == 13) {
-        if (searchInput.value !== '') {
-            insertHTML(searchInput.value.toLowerCase());
+        if (searchInput.value.trim() !== '') {
+            insertHTML(searchInput.value.trim().toLowerCase());
             searchInput.value = '';
         } else alert("GitHub 아이디를 입력해주세요");
     } else if (e.keyCode == 27) searchInput.blur();

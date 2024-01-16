@@ -82,7 +82,7 @@ body {position: relative; display: flex; flex-flow: column nowrap; justify-conte
 .area-result__repositoryItem {display: block; width: 100%; height: auto; padding: 12px; border: 1px solid var(--grayscale-200); border-radius: 8px; background-color: var(--brand-white);}
 .area-result__repositoryItem + .area-result__repositoryItem {margin: 8px 0px 0px;}
 .area-result__repositorySubject {display: block; width: 100%; height: auto;}
-.area-result__repositorySubject a {display: inline; font-size: 18px; font-weight: 500; color: var(--grayscale-700); word-break: keep-all; transition: color 0.2s;}
+.area-result__repositorySubject a {display: inline; font-size: 17px; font-weight: 500; color: var(--grayscale-700); word-break: keep-all; transition: color 0.2s;}
 .area-result__repositorySubject a:hover {color: var(--ui-information); text-decoration: underline;}
 .area-result__repositoryDescription {display: block; width: 100%; height: auto; font-size: 15px; font-weight: 400; color: var(--grayscale-500); word-break: keep-all;}
 .area-result__repositorySubject + .area-result__repositoryDescription {margin: 6px 0px 0px;}
@@ -102,4 +102,11 @@ body {position: relative; display: flex; flex-flow: column nowrap; justify-conte
 .area-result__none {display: block; width: 100%; height: auto; padding: 48px 12px; margin: 0px 0px 20px; border: 1px solid var(--grayscale-200); border-radius: 16px; background-color: var(--brand-white);}
 .area-result__none p {position: relative; display: block; width: 100%; height: auto; padding: 60px 0px 0px; font-size: 16px; font-weight: 500; color: var(--grayscale-600); text-align: center; line-height: 1.4; word-break: keep-all;}
 .area-result__none p::before {content: "!"; position: absolute; top: 0px; left: 0px; right: 0px; width: 42px; height: 42px; margin: 0px auto; border: 1px solid var(--grayscale-500); font-size: 20px; font-weight: 700; text-align: center; line-height: 42px; border-radius: 50%;}
+
+.area-result__loaderBox {display: flex; justify-content: center; align-items: center; padding: 120px 20px;}
+.area-result__loader {border-radius: 50%; border: 4px solid rgba(0, 0, 0, 0.1); border-left-color: transparent; width: 36px; height: 36px; animation: spinLoader 1s linear infinite;}
+@keyframes spinLoader {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+  }
 /* result */
