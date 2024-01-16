@@ -79,7 +79,7 @@ export default class Finder {
                         Object
                             .keys(detailTarget)
                             .map(el => {
-                                return (user[el] !== null && user[el] !== '') ?
+                                return user[el] ?
                                     `<li role="listitem">
                                         <p><span class="material-icons">${detailTarget[el]}</span> <span>${user[el]}</span></p>
                                     </li>` : '';
@@ -97,7 +97,7 @@ export default class Finder {
                                 <h3 class="area-result__repositorySubject">
                                     <a href="${el.html_url}" target="_blank" title="새창이동: ${el.name}">${el.name}</a>
                                 </h3>
-                                ${ el.description !== null ? '<p class="area-result__repositoryDescription">' + el.description + '</p>' : '' }
+                                ${ el.description ? '<p class="area-result__repositoryDescription">' + el.description + '</p>' : '' }
                                 <div class="area-result__repositorySummary">
                                     <p><span class="material-icons">star</span> ${this.intlUS.format(el.stargazers_count) ?? 0}</p>
                                     <p><span class="material-icons">visibility</span> ${this.intlUS.format(el.watchers_count) ?? 0}</p>
