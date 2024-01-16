@@ -2,23 +2,12 @@ import Finder from "./finder.js";
 const searchInput = document.getElementById('searchInput');
 const resultContainer = document.getElementById('resultContainer');
 const gitHubFinder = new Finder();
-// gitHubFinder.printData('lc-02s');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+async function insertHTML() {
+    resultContainer.innerHTML = await gitHubFinder.templateHTML('lc-02s');
+}
+insertHTML();
 
 window.addEventListener('keydown', (e) => {
     const hotKey = window.navigator.platform.toLowerCase().indexOf('mac') >= 0 ? e.metaKey : e.altKey;
@@ -29,14 +18,14 @@ searchInput.addEventListener('keydown', (e) => {
     else if (e.keyCode == 27) searchInput.blur();
 
     if (searchInput.value !== '') {
-        searchInput.parentNode.classList.remove('area-main__searchInputBox--tooltip');
+        searchInput.parentNode.classList.remove('area-search__inputBox--tooltip');
     }
 });
 searchInput.addEventListener('focus', (e) => {
     if (searchInput.value === '') {
-        searchInput.parentNode.classList.add('area-main__searchInputBox--tooltip');
+        searchInput.parentNode.classList.add('area-search__inputBox--tooltip');
     }
 });
 searchInput.addEventListener('blur', (e) => {
-    searchInput.parentNode.classList.remove('area-main__searchInputBox--tooltip');
+    searchInput.parentNode.classList.remove('area-search__inputBox--tooltip');
 });
