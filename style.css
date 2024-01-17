@@ -29,7 +29,8 @@ body {position: relative; display: flex; flex-flow: column nowrap; justify-conte
 
 /* search */
 .area-search {display: block; width: 100%; height: auto; padding: 16px; margin: 0px 0px 12px; border: 1px solid var(--grayscale-200); border-radius: 16px; background-color: var(--brand-white);}
-.area-search__title {display: block; width: 100%; height: auto; padding: 0px 4px; margin: 0px 0px 4px; font-size: 24px; font-weight: 700; color: var(--grayscale-900); line-height: 1.2; word-break: keep-all;}
+.area-search__title {display: flex; flex-flow: row nowrap; justify-content: flex-start; align-items: center; width: 100%; height: auto; padding: 0px 4px; margin: 0px 0px 4px;}
+.area-search__title span {margin-left: 8px; margin-top: 2px; font-size: 24px; font-weight: 700; color: var(--grayscale-900); line-height: 1.2; word-break: keep-all;}
 .area-search__description {display: block; width: 100%; height: auto; padding: 0px 4px; font-size: 16px; font-weight: 400; color: var(--grayscale-500); line-height: 1.4; word-break: keep-all;}
 
 .area-search__inputBox {position: relative; display: block; width: 100%; height: auto; margin: 16px 0px 0px;}
