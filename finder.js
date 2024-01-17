@@ -82,7 +82,9 @@ export default class Finder {
                                 return user[el] ?
                                     `<li role="listitem">
                                         <p><span class="material-icons">${detailTarget[el]}</span> ${
-                                            el === 'blog' ? `<a href="${user[el]}" target="_blank" title="새창이동: ${user.name} Blog">${user[el]}</a>` : `<span>${user[el]}</span>`
+                                            el === 'blog' ? 
+                                                `<a href="${user[el]}" target="_blank" title="새창이동: ${user.name} Blog">${user[el]}</a>` : 
+                                                (el ==='created_at' ? `<span>${user[el].slice(0, 10) + ' ~'}</span>` : `<span>${user[el]}</span>`)
                                         }</p>
                                     </li>` : '';
                             }).join('')
