@@ -1,20 +1,26 @@
+import config from './api_key.js';
+
 export default class Finder {
     constructor() {
-        this.userState = 0,
-        this.reposState = 1,
+        this.client_id = config.api_id;
+        this.client_secret = config.api_secret;
+        this.repos_count = 4;
+        this.repos_sort = 'created: asc';
+        this.userState = 0;
+        this.reposState = 1;
         this.intlKR = new Intl.NumberFormat('ko-KR', {
             notation: 'compact',
             maximumFractionDigits: 1,
-        }),
+        });
         this.intlUS = new Intl.NumberFormat('en-US', {
             notation: 'compact',
             maximumFractionDigits: 1,
-        })
+        });
     }
 
-    static async fetchData(username, state) {
+    async fetchData(username, state) {
         try {
-            const userData = await fetch(`https://api.github.com/users/${username + (state ? '/repos' : '')}`);
+            const userData = await fetch(`https://api.github.com/users/${username + ((state ? `/repos?per_page=${this.repos_count}&sort=${this.repos_sort}&` : `?`) + `client_id=${this.client_id}&client_secret=${this.client_secret}`)}`);
             const jsonData = await userData.json();
             return jsonData.message ? null : jsonData;
         } catch(err) {
@@ -24,14 +30,14 @@ export default class Finder {
 
     async printData(username) {
         // method to debug
-        console.log('userData: ', await Finder.fetchData(username, this.userState));
-        console.log('repoData: ', await Finder.fetchData(username, this.reposState));
+        console.log('userData: ', await this.fetchData(username, this.userState));
+        console.log('repoData: ', await this.fetchData(username, this.reposState));
     }
 
     async extractData(username) {
         return ({
-            user: await Finder.fetchData(username, this.userState) ?? false,
-            repos: await Finder.fetchData(username, this.reposState) ?? false
+            user: await this.fetchData(username, this.userState) ?? false,
+            repos: await this.fetchData(username, this.reposState) ?? false
         });
     }
 
@@ -96,7 +102,7 @@ export default class Finder {
                     <ul class="area-result__repositoryList" role="list">
                         ${
                         repos.length > 0 ? repos.map((el, idx) => {
-                            return idx < 4 ?
+                            return idx < this.repos_count ?
                             `<li class="area-result__repositoryItem" role="listitem">
                                 <h3 class="area-result__repositorySubject">
                                     <a href="${el.html_url}" target="_blank" title="새창이동: ${el.name}">${el.name}</a>
