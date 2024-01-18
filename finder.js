@@ -98,7 +98,7 @@ export default class Finder {
                     </ul>
                 </div>
                 <div class="area-result__repository">
-                    <h3 class="area-result__repositoryTitle">Popular repositories</h3>
+                    <h3 class="area-result__repositoryTitle">Latest Repositories</h3>
                     <ul class="area-result__repositoryList" role="list">
                         ${
                         repos.length > 0 ? repos.map((el, idx) => {
